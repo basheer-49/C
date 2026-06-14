@@ -23,7 +23,7 @@
             color: #0f172a;
             overflow-x: hidden;
             line-height: 1.45;
-            font-size: 14px; /* قاعدة أصغر */
+            font-size: 14px;
         }
 
         :root {
@@ -35,10 +35,10 @@
             --transition-smooth: all 0.3s ease;
         }
 
-        /* navbar أصغر */
+        /* شريط علوي أعلى قليلاً وبارتفاع أقل */
         .navbar {
             background: rgba(244, 235, 22, 0.98);
-            padding: 0.5rem 5%;
+            padding: 0.35rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -48,10 +48,11 @@
             z-index: 1000;
             box-shadow: 0 2px 8px rgba(0,0,0,0.02);
         }
+        /* لوغو أصغر */
         .navbar-logo {
-            height: 42px;
+            height: 36px;
             width: auto;
-            border-radius: 14px;
+            border-radius: 12px;
         }
         .nav-links {
             display: flex;
@@ -60,59 +61,63 @@
         }
         .nav-links li {
             font-weight: 700;
-            font-size: 0.85rem;
-            padding: 0.3rem 0;
+            font-size: 0.8rem;
+            padding: 0.2rem 0;
             cursor: pointer;
             border-bottom: 2px solid transparent;
             transition: var(--transition-smooth);
         }
-        .nav-links li:hover {
-            border-bottom-color: #3b3b0b;
-        }
 
-        /* Hero section - تقليل كبير */
+        /* Hero section: نصوص أصغر تناسب الصورة */
         .hero {
             display: flex;
             align-items: center;
             justify-content: space-between;
             flex-wrap: wrap;
-            padding: 2rem 5% 2.5rem;
-            gap: 1.8rem;
+            padding: 1.5rem 5% 2rem;
+            gap: 1.5rem;
             background: linear-gradient(145deg, #ffffff, #fffcf0);
         }
         .hero-text {
             flex: 1.5;
         }
+        /* لوغو رئيسي أصغر */
         .main-logo {
-            max-width: 180px;
+            max-width: 140px;
             width: 100%;
-            margin-bottom: 0.8rem;
-            border-radius: 1.2rem;
+            margin-bottom: 0.6rem;
+            border-radius: 1rem;
         }
+        /* جعل الشعار أصفر */
         .hero-slogan {
-            font-size: 1.4rem;
+            font-size: 1.1rem;
             font-weight: 800;
-            background: linear-gradient(135deg, #0f172a, #b8860b);
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: transparent;
-            margin: 0.5rem 0 0.5rem;
+            color: var(--brand-yellow);
+            background: none;
+            -webkit-background-clip: unset;
+            background-clip: unset;
+            color: #eab308;
+            text-shadow: 0 1px 1px rgba(0,0,0,0.02);
+            margin: 0.3rem 0 0.3rem;
             line-height: 1.3;
         }
         .hero-description {
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             color: #334155;
             border-right: 3px solid var(--brand-yellow);
-            padding-right: 0.8rem;
+            padding-right: 0.6rem;
         }
+        /* الصورة كما هي بدون تغيير حجمها */
         .hero-image img {
             max-width: 100%;
-            border-radius: 2rem;
-            max-height: 200px;
-            object-fit: cover;
+            border-radius: 1.8rem;
+            max-height: 220px;
+            object-fit: contain;
+            width: auto;
             box-shadow: 0 12px 20px -10px rgba(0,0,0,0.1);
         }
-        /* Animations */
+        
+        /* animate-on-scroll للخدمات (تظهر عند التمرير) */
         .animate-on-scroll {
             opacity: 0;
             transform: translateY(25px);
@@ -122,157 +127,162 @@
             opacity: 1;
             transform: translateY(0);
         }
-        /* cards اصغر */
-        .section-card {
-            background: #ffffff;
-            margin: 1.8rem 5%;
-            padding: 1.5rem 1.5rem;
-            border-radius: 1.8rem;
-            box-shadow: var(--card-shadow);
-            border: 1px solid rgba(244, 235, 22, 0.2);
-        }
-        .section-title {
-            font-size: 1.4rem;
-            font-weight: 800;
-            margin-bottom: 1.2rem;
-            border-right: 5px solid var(--brand-yellow);
-            padding-right: 0.8rem;
-            display: inline-block;
-        }
-        /* services grid ابعاد صغيرة */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            gap: 1rem;
-        }
+        
+        /* تأثير إضافي لأيقونات الخدمات: نبثق من العدم (scale) */
         .service-item {
             background: var(--gray-bg);
             border-radius: 1.4rem;
             padding: 1rem 0.8rem;
             text-align: center;
-            transition: var(--transition-smooth);
+            transition: all 0.25s ease;
             border: 1px solid #eff3f6;
+            opacity: 0;
+            transform: scale(0.92);
+            transition: opacity 0.4s ease, transform 0.3s ease;
+        }
+        .service-item.visible-item {
+            opacity: 1;
+            transform: scale(1);
         }
         .service-item i {
-            font-size: 1.8rem;
-            padding: 8px;
+            font-size: 1.7rem;
+            padding: 6px;
             background: white;
             border-radius: 50px;
-            margin-bottom: 0.6rem;
+            margin-bottom: 0.5rem;
             display: inline-block;
         }
         .service-item h3 {
-            font-size: 1rem;
+            font-size: 0.95rem;
             font-weight: 800;
-            margin-bottom: 0.3rem;
+            margin-bottom: 0.2rem;
         }
         .service-item p {
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             color: #475569;
         }
-        .service-item:hover {
-            transform: translateY(-4px);
+        
+        /* باقي العناصر */
+        .section-card {
+            background: #ffffff;
+            margin: 1.5rem 5%;
+            padding: 1.2rem 1.2rem;
+            border-radius: 1.6rem;
+            box-shadow: var(--card-shadow);
+            border: 1px solid rgba(244, 235, 22, 0.2);
+        }
+        .section-title {
+            font-size: 1.25rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            border-right: 5px solid var(--brand-yellow);
+            padding-right: 0.7rem;
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 0.9rem;
         }
         /* crown cards */
         .two-crowns {
             display: flex;
             flex-wrap: wrap;
             gap: 1rem;
-            margin-top: 0.8rem;
+            margin-top: 0.5rem;
         }
         .crown-card {
             flex: 1;
-            min-width: 200px;
+            min-width: 170px;
             background: #fffef7;
-            border-radius: 1.8rem;
-            padding: 1rem 1rem;
+            border-radius: 1.5rem;
+            padding: 0.8rem 0.8rem;
             text-align: center;
-            border: 1px solid rgba(244,235,22,0.5);
         }
         .crown-card img {
-            max-width: 90px;
-            max-height: 70px;
-            margin-bottom: 0.5rem;
+            max-width: 70px;
+            max-height: 60px;
         }
         .crown-card h3 {
-            font-size: 1.2rem;
-            font-weight: 800;
+            font-size: 1rem;
         }
-        .crown-card p {
-            font-size: 0.75rem;
-        }
-        /* companies logos */
+        /* شركاؤنا */
         .companies-grid {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.8rem;
+            gap: 0.7rem;
             justify-content: center;
-            margin-top: 1rem;
         }
         .company-logo-card {
             background: white;
-            border-radius: 1.2rem;
-            padding: 0.6rem;
-            width: 100px;
+            border-radius: 1rem;
+            padding: 0.5rem;
+            width: 85px;
             text-align: center;
-            border: 1px solid #eef2f0;
         }
         .company-logo-card img {
-            max-width: 55px;
-            max-height: 55px;
-            object-fit: contain;
+            max-width: 48px;
+            max-height: 48px;
         }
         .company-logo-card p {
-            font-size: 0.65rem;
-            font-weight: 700;
-            margin-top: 6px;
+            font-size: 0.6rem;
         }
-        /* buttons */
+        /* أزرار */
         .btn-join, .signup-btn {
             background: var(--brand-yellow);
-            padding: 0.6rem 1.5rem;
+            padding: 0.5rem 1.2rem;
             border-radius: 40px;
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             font-weight: 800;
             border: none;
             cursor: pointer;
         }
-        /* contact */
+        /* contact section بدون إيموجي وأيقونات قابلة للتمرير الأفقي */
         .contact-modern-box {
             background: linear-gradient(125deg, #fffef9, #ffffff);
-            border-radius: 2rem;
-            padding: 1.5rem 1.5rem;
-            margin: 1.8rem 5%;
+            border-radius: 1.8rem;
+            padding: 1.2rem 1rem;
+            margin: 1.5rem 5%;
             text-align: center;
         }
+        .contact-scroll-wrapper {
+            width: 100%;
+            overflow-x: auto;
+            white-space: nowrap;
+            scrollbar-width: thin;
+            padding-bottom: 6px;
+            -webkit-overflow-scrolling: touch;
+        }
         .contact-icons-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 0.8rem;
-            margin-top: 1.2rem;
+            display: inline-flex;
+            gap: 0.9rem;
+            padding: 0 0.5rem;
         }
         .contact-card {
             background: #ffffff;
             border-radius: 2rem;
             padding: 0.5rem 1rem;
-            min-width: 100px;
+            min-width: 95px;
             text-decoration: none;
             color: #0f172a;
             border: 1px solid #e9edf0;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             font-weight: 600;
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            white-space: normal;
+            transition: 0.2s;
         }
         .contact-card i {
             font-size: 1.3rem;
             margin-bottom: 4px;
         }
+        /* تصغير الفوتر */
         footer {
             background: #0a0f1c;
             color: #cbd5e6;
-            padding: 1.2rem;
-            font-size: 0.7rem;
-            text-align: center;
+            padding: 1rem;
+            font-size: 0.65rem;
         }
         /* popup */
         .page-about {
@@ -291,68 +301,51 @@
         .about-content {
             background: white;
             max-width: 90%;
-            width: 500px;
-            margin: 1rem;
-            padding: 1.5rem;
-            border-radius: 2rem;
+            width: 460px;
+            padding: 1.2rem;
+            border-radius: 1.8rem;
             position: relative;
         }
         .close-about {
             position: absolute;
-            top: 0.8rem;
+            top: 0.6rem;
             left: 1rem;
-            font-size: 1.2rem;
-            cursor: pointer;
             background: var(--brand-yellow);
-            width: 30px;
-            height: 30px;
+            width: 28px;
+            height: 28px;
+            border-radius: 30px;
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 30px;
+            cursor: pointer;
         }
         /* form */
         .form-wa {
             display: flex;
             flex-direction: column;
-            gap: 0.8rem;
+            gap: 0.7rem;
         }
         .form-row {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.8rem;
+            gap: 0.7rem;
         }
         .form-group {
             flex: 1;
         }
-        label {
-            font-size: 0.7rem;
-            font-weight: 700;
-        }
         input, select, textarea {
-            padding: 8px 12px;
-            border-radius: 1.5rem;
-            font-size: 0.8rem;
-            border: 1px solid #e2e8f0;
+            padding: 6px 10px;
+            border-radius: 1.2rem;
+            font-size: 0.75rem;
         }
-        .submit-form-wa {
-            background: #25d366;
-            padding: 10px;
-            font-size: 0.85rem;
-            border-radius: 2rem;
+        label {
+            font-size: 0.65rem;
         }
-        /* موبايل اضافي */
         @media (max-width: 640px) {
-            body { font-size: 13px; }
-            .navbar { flex-direction: column; gap: 6px; }
-            .nav-links { gap: 1rem; }
-            .hero-slogan { font-size: 1.2rem; }
-            .section-title { font-size: 1.2rem; }
-            .service-item h3 { font-size: 0.9rem; }
-            .crown-card { min-width: 160px; }
-            .company-logo-card { width: 80px; }
-            .company-logo-card img { max-width: 45px; }
-            .contact-card { min-width: 80px; font-size: 0.65rem; }
+            .hero-slogan { font-size: 0.95rem; }
+            .service-item h3 { font-size: 0.85rem; }
+            .services-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
+            .contact-card { min-width: 80px; font-size: 0.6rem; padding: 0.4rem 0.6rem; }
         }
     </style>
 </head>
@@ -368,13 +361,13 @@
     </ul>
 </div>
 
-<!-- Hero -->
+<!-- Hero section: نصوص أصغر -->
 <div id="mainHome" class="hero">
     <div class="hero-text">
         <img class="main-logo" src="https://github.com/basheer-49/CCM/blob/main/%D9%84%D9%8A%D9%86%D9%83%D9%8A%D8%AF%20%D8%A7%D9%86%20%D8%A8%D8%A7%D9%86%D8%B1%20(1080%20x%201080%20px)%20(6).png?raw=true" alt="CCM">
         <div class="hero-slogan">أول وكالة تسويق عندها شغف قد الدنيا للملايين</div>
         <div class="hero-description">Creative Content Marketing | نصنع المحتوى الذي يحرك الأسواق</div>
-        <div style="margin-top: 1rem;">
+        <div style="margin-top: 0.8rem;">
             <button class="btn-join" id="heroJoinBtn">ابدأ الآن <i class="fas fa-arrow-left"></i></button>
         </div>
     </div>
@@ -384,33 +377,25 @@
 </div>
 
 <div id="scrollContent">
+    <!-- بطاقة ترحيبية -->
     <div class="animate-on-scroll section-card" style="text-align: center; background: #fffef5;">
-        <h2 style="font-size: 1.3rem; font-weight: 800;">والله و نوَّر الويبسايت <i class="fas fa-smile-wink"></i></h2>
-        <p style="font-size: 0.85rem;">كمل تمرير تستحيش .. اعتبر الويب ويبك، وإحنا هنا نصنع الإبداع</p>
+        <h2 style="font-size: 1.2rem; font-weight: 800;">والله و نوَّر الويبسايت <i class="fas fa-smile-wink"></i></h2>
+        <p style="font-size: 0.8rem;">كمل تمرير تستحيش .. اعتبر الويب ويبك، وإحنا هنا نصنع الإبداع</p>
     </div>
 
-    <!-- Services -->
+    <!-- خدماتنا – أيقونات تظهر بشكل متحرك عند التمرير -->
     <div class="animate-on-scroll section-card" id="servicesSection">
         <div class="section-title"><i class="fas fa-crown"></i> خدماتنا الإبداعية</div>
-        <div class="services-grid">
-            <div class="service-item"><i class="fas fa-pen-fancy"></i><h3>تسويق المحتوى</h3><p>استراتيجيات جذابة</p></div>
-            <div class="service-item"><i class="fas fa-chart-line"></i><h3>تمويل المحتوى</h3><p>خطط مدعومة</p></div>
-            <div class="service-item"><i class="fas fa-video"></i><h3>إنتاج المحتوى الدعائي</h3><p>فيديوهات احترافية</p></div>
-            <div class="service-item"><i class="fas fa-camera"></i><h3>التصوير</h3><p>بصمة بصرية</p></div>
-            <div class="service-item special-graphic"><i class="fas fa-palette"></i><h3>التصميم الجرافيكي</h3><p>هوية بصرية و بوسترات</p></div>
-            <div class="service-item"><i class="fas fa-code"></i><h3>تصميم المواقع والتطبيقات</h3><p>تجربة رقمية سلسة</p></div>
-            <div class="service-item"><i class="fas fa-print"></i><h3>المطبوعات</h3><p>هوية ورقية متقنة</p></div>
-            <div class="service-item"><i class="fas fa-chart-pie"></i><h3>خدمات دراسة السوق</h3><p>تحليل دقيق</p></div>
-            <div class="service-item"><i class="fas fa-people-arrows"></i><h3>خدمات دراسة المنافسين</h3><p>استباق النجاح</p></div>
-            <div class="service-item special-seo"><i class="fas fa-chart-simple"></i><h3>تحسين محركات البحث SEO</h3><p>ظهور متقدم</p></div>
+        <div class="services-grid" id="servicesGrid">
+            <!-- سيتم إضافة الخدمات عبر JS لتطبيق تأثير الظهور الفردي -->
         </div>
     </div>
 
-    <div class="animate-on-scroll" style="text-align: center; margin: 0.5rem 5% 1rem">
+    <div class="animate-on-scroll" style="text-align: center; margin: 0 5% 1rem">
         <button class="btn-join" id="joinNowBtn">انضم الآن <i class="fas fa-arrow-left"></i></button>
     </div>
 
-    <!-- Two crowns -->
+    <!-- الشعلتان -->
     <div class="animate-on-scroll section-card">
         <div class="section-title"><i class="fas fa-fire"></i> قيادات استراتيجية</div>
         <div class="two-crowns">
@@ -434,21 +419,23 @@
     </div>
 
     <div class="animate-on-scroll section-card" style="text-align: center;">
-        <h2 style="font-size: 1.3rem; font-weight: 800;">شو بتستنى؟ سجل معنا</h2>
-        <button id="signupFinalBtn" class="signup-btn" style="margin-top: 0.8rem;">تسجيل الآن <i class="fas fa-user-plus"></i></button>
+        <h2 style="font-size: 1.2rem; font-weight: 800;">شو بتستنى؟ سجل معنا</h2>
+        <button id="signupFinalBtn" class="signup-btn" style="margin-top: 0.6rem;">تسجيل الآن <i class="fas fa-user-plus"></i></button>
     </div>
 
-    <!-- Contact -->
+    <!-- قسم تواصل معنا: بدون إيموجي وأيقونات تمرير أفقي -->
     <div class="contact-modern-box animate-on-scroll" id="contactSection">
-        <h2 style="font-size: 1.3rem; font-weight: 800;"> تواصل معنا</h2>
-        <p style="font-size: 0.8rem;">جميع قنوات التواصل متاحة</p>
-        <div class="contact-icons-grid">
-            <a href="tel:+962781144716" class="contact-card"><i class="fas fa-phone-alt"></i><span>0781144716</span></a>
-            <a href="https://wa.me/962781144716" target="_blank" class="contact-card"><i class="fab fa-whatsapp"></i><span>واتساب</span></a>
-            <a href="https://www.instagram.com/ccm.jor" target="_blank" class="contact-card"><i class="fab fa-instagram"></i><span>انستغرام</span></a>
-            <a href="https://web.facebook.com/profile.php?id=61566348847213" target="_blank" class="contact-card"><i class="fab fa-facebook"></i><span>فيسبوك</span></a>
-            <a href="mailto:BASHEER.WORKED@GMAIL.COM" class="contact-card"><i class="fas fa-envelope"></i><span>البريد</span></a>
-            <a href="https://www.linkedin.com/company/ccm-jo/" target="_blank" class="contact-card"><i class="fab fa-linkedin"></i><span>لينكد إن</span></a>
+        <h2 style="font-size: 1.2rem; font-weight: 800;">تواصل معنا</h2>
+        <p style="font-size: 0.75rem;">جميع قنوات التواصل متاحة يمكنك التمرير للمزيد</p>
+        <div class="contact-scroll-wrapper">
+            <div class="contact-icons-grid">
+                <a href="tel:+962781144716" class="contact-card"><i class="fas fa-phone-alt"></i><span>0781144716</span></a>
+                <a href="https://wa.me/962781144716" target="_blank" class="contact-card"><i class="fab fa-whatsapp"></i><span>واتساب</span></a>
+                <a href="https://www.instagram.com/ccm.jor" target="_blank" class="contact-card"><i class="fab fa-instagram"></i><span>انستغرام</span></a>
+                <a href="https://web.facebook.com/profile.php?id=61566348847213" target="_blank" class="contact-card"><i class="fab fa-facebook"></i><span>فيسبوك</span></a>
+                <a href="mailto:BASHEER.WORKED@GMAIL.COM" class="contact-card"><i class="fas fa-envelope"></i><span>البريد</span></a>
+                <a href="https://www.linkedin.com/company/ccm-jo/" target="_blank" class="contact-card"><i class="fab fa-linkedin"></i><span>لينكد إن</span></a>
+            </div>
         </div>
     </div>
 </div>
@@ -461,10 +448,10 @@
 <div id="aboutPage" class="page-about">
     <div class="about-content">
         <div class="close-about" id="closeAboutBtn">✖</div>
-        <img src="https://github.com/basheer-49/CCM/blob/main/%D9%84%D9%8A%D9%86%D9%83%D9%8A%D8%AF%20%D8%A7%D9%86%20%D8%A8%D8%A7%D9%86%D8%B1%20(1080%20x%201080%20px)%20(6).png?raw=true" style="width: 80px;">
-        <h2 style="font-size: 1.2rem; color:#b8a900;">من نحن - CCM</h2>
-        <p style="font-size: 0.8rem;">شركة رائدة في التسويق الإبداعي، خبرة من 2019. يديرها <strong>بشير محمد أبو عمر</strong> وفريق من المبدعين. نؤمن أن كل علامة تجارية تستحق قصة فريدة.</p>
-        <p style="font-size: 0.8rem;">نقدم حلولاً تسويقية شاملة: استراتيجيات محتوى، إنتاج فيديو، تصميم جرافيك، تحسين محركات بحث SEO، وبناء هويات رقمية.</p>
+        <img src="https://github.com/basheer-49/CCM/blob/main/%D9%84%D9%8A%D9%86%D9%83%D9%8A%D8%AF%20%D8%A7%D9%86%20%D8%A8%D8%A7%D9%86%D8%B1%20(1080%20x%201080%20px)%20(6).png?raw=true" style="width: 70px;">
+        <h2 style="font-size: 1.1rem; color:#b8a900;">من نحن - CCM</h2>
+        <p style="font-size: 0.75rem;">شركة رائدة في التسويق الإبداعي، خبرة من 2019. يديرها <strong>بشير محمد أبو عمر</strong> وفريق من المبدعين. نؤمن أن كل علامة تجارية تستحق قصة فريدة.</p>
+        <p style="font-size: 0.75rem;">نقدم حلولاً تسويقية شاملة: استراتيجيات محتوى، إنتاج فيديو، تصميم جرافيك، تحسين محركات بحث SEO، وبناء هويات رقمية.</p>
     </div>
 </div>
 
@@ -472,8 +459,7 @@
 <div id="joinFormModal" class="page-about">
     <div class="about-content" style="max-width: 500px;">
         <div class="close-about" id="closeJoinForm">✖</div>
-        <h2 style="font-size: 1.2rem; color:#b8a900;">📋 نموذج طلب التعاون</h2>
-        <p style="font-size: 0.75rem;">يرجى تعبئة البيانات وسيتم الرد عبر واتساب.</p>
+        <h2 style="font-size: 1rem; color:#b8a900;">📋 نموذج طلب التعاون</h2>
         <div class="form-wa">
             <div class="form-row">
                 <div class="form-group"><label>الاسم الكامل *</label><input type="text" id="fullName"></div>
@@ -508,7 +494,44 @@
 </div>
 
 <script>
-    // جميع الشركات (تم إرجاعها)
+    // بيانات الخدمات
+    const servicesData = [
+        { icon: "fas fa-pen-fancy", title: "تسويق المحتوى", desc: "استراتيجيات جذابة" },
+        { icon: "fas fa-chart-line", title: "تمويل المحتوى", desc: "خطط مدعومة" },
+        { icon: "fas fa-video", title: "إنتاج المحتوى الدعائي", desc: "فيديوهات احترافية" },
+        { icon: "fas fa-camera", title: "التصوير", desc: "بصمة بصرية" },
+        { icon: "fas fa-palette", title: "التصميم الجرافيكي", desc: "هوية بصرية و بوسترات" },
+        { icon: "fas fa-code", title: "تصميم المواقع", desc: "تجربة رقمية سلسة" },
+        { icon: "fas fa-print", title: "المطبوعات", desc: "هوية ورقية متقنة" },
+        { icon: "fas fa-chart-pie", title: "خدمات دراسة السوق", desc: "تحليل دقيق" },
+        { icon: "fas fa-people-arrows", title: "دراسة المنافسين", desc: "استباق النجاح" },
+        { icon: "fas fa-chart-simple", title: "تحسين محركات البحث SEO", desc: "ظهور متقدم" }
+    ];
+
+    // بناء شبكة الخدمات مع كلاس مخصص للظهور
+    const servicesGrid = document.getElementById('servicesGrid');
+    if(servicesGrid) {
+        servicesData.forEach(service => {
+            const div = document.createElement('div');
+            div.className = 'service-item';
+            div.innerHTML = `<i class="${service.icon}"></i><h3>${service.title}</h3><p>${service.desc}</p>`;
+            servicesGrid.appendChild(div);
+        });
+    }
+
+    // تأثير ظهور الخدمات عند التمرير (كل خدمة على حدة)
+    const serviceItems = document.querySelectorAll('.service-item');
+    const serviceObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if(entry.isIntersecting) {
+                entry.target.classList.add('visible-item');
+                serviceObserver.unobserve(entry.target); // يظهر مرة واحدة
+            }
+        });
+    }, { threshold: 0.2 });
+    serviceItems.forEach(item => serviceObserver.observe(item));
+
+    // شركات العملاء
     const allCompanies = [
         { name: "Wrap Offer", logo: "https://raw.githubusercontent.com/basheer-49/CCM/c4e47c07b37247d2a7548db351c93bc921929ec1/%D9%84%D9%8A%D9%86%D9%83%D9%8A%D8%AF%20%D8%A7%D9%86%20%D8%A8%D8%A7%D9%86%D8%B1%20(1080%20x%201080%20px)%20(3).png" },
         { name: "حنون خدمات نقل", logo: "https://github.com/basheer-49/CCM/blob/main/%D9%84%D9%8A%D9%86%D9%83%D9%8A%D8%AF%20%D8%A7%D9%86%20%D8%A8%D8%A7%D9%86%D8%B1%20(1080%20x%201080%20px)%20(1).png?raw=true" },
@@ -523,9 +546,9 @@
         { name: "حلول الوطن", logo: "https://github.com/basheer-49/CCM/blob/main/%D9%84%D9%8A%D9%86%D9%83%D9%8A%D8%AF%20%D8%A7%D9%86%20%D8%A8%D8%A7%D9%86%D8%B1%20(1080%20x%201080%20px)%20(8).png?raw=true" },
         { name: "الشركة الأم", logo: "https://github.com/basheer-49/CCM/blob/main/%D9%84%D9%8A%D9%86%D9%83%D9%8A%D8%AF%20%D8%A7%D9%86%20%D8%A8%D8%A7%D9%86%D8%B1%20(1080%20x%201080%20px).png?raw=true" }
     ];
-    function displayAllCompanies() {
+    function displayCompanies() {
         const container = document.getElementById('companiesGrid');
-        if(container){
+        if(container) {
             container.innerHTML = '';
             allCompanies.forEach(c => {
                 const card = document.createElement('div');
@@ -535,16 +558,18 @@
             });
         }
     }
-    displayAllCompanies();
+    displayCompanies();
 
-    // Intersection Observer
-    const animated = document.querySelectorAll('.animate-on-scroll');
-    const obs = new IntersectionObserver((entries) => {
-        entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+    // تأثيرات التمرير العامة
+    const animatedElements = document.querySelectorAll('.animate-on-scroll');
+    const generalObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if(entry.isIntersecting) entry.target.classList.add('visible');
+        });
     }, { threshold: 0.1 });
-    animated.forEach(el => obs.observe(el));
+    animatedElements.forEach(el => generalObserver.observe(el));
 
-    // navigation
+    // تنقل و popups
     document.getElementById('homeLink')?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
     document.getElementById('servicesLink')?.addEventListener('click', () => document.getElementById('servicesSection')?.scrollIntoView({ behavior: 'smooth' }));
     document.getElementById('contactLink')?.addEventListener('click', () => document.getElementById('contactSection')?.scrollIntoView({ behavior: 'smooth' }));
@@ -558,29 +583,30 @@
     document.getElementById('heroJoinBtn')?.addEventListener('click', openJoin);
     document.getElementById('closeJoinForm')?.addEventListener('click', () => joinPopup.style.display = 'none');
 
-    // send to whatsapp
+    // إرسال واتساب
     document.getElementById('sendToWhatsApp')?.addEventListener('click', () => {
-        const name = document.getElementById('fullName')?.value;
-        const job = document.getElementById('jobTitle')?.value;
-        const business = document.getElementById('businessName')?.value;
-        const busType = document.getElementById('businessType')?.value;
-        const city = document.getElementById('city')?.value;
-        const phone = document.getElementById('phone')?.value;
-        const email = document.getElementById('email')?.value;
-        const services = document.getElementById('servicesInterest')?.value;
-        const hasSocial = document.getElementById('hasSocial')?.value;
-        const followers = document.getElementById('followersCount')?.value;
-        const prev = document.getElementById('prevWork')?.value;
-        const goal = document.getElementById('mainGoal')?.value;
-        const age = document.getElementById('businessAge')?.value;
-        const budget = document.getElementById('budget')?.value;
-        const notes = document.getElementById('notes')?.value;
-        if(!name || !business || !city || !phone) return alert('يرجى ملء الحقول الأساسية');
+        const name = document.getElementById('fullName')?.value || '';
+        const job = document.getElementById('jobTitle')?.value || '';
+        const business = document.getElementById('businessName')?.value || '';
+        const busType = document.getElementById('businessType')?.value || '';
+        const city = document.getElementById('city')?.value || '';
+        const phone = document.getElementById('phone')?.value || '';
+        const email = document.getElementById('email')?.value || '';
+        const services = document.getElementById('servicesInterest')?.value || '';
+        const hasSocial = document.getElementById('hasSocial')?.value || '';
+        const followers = document.getElementById('followersCount')?.value || '';
+        const prev = document.getElementById('prevWork')?.value || '';
+        const goal = document.getElementById('mainGoal')?.value || '';
+        const age = document.getElementById('businessAge')?.value || '';
+        const budget = document.getElementById('budget')?.value || '';
+        const notes = document.getElementById('notes')?.value || '';
+        if(!name || !business || !city || !phone) return alert('يرجى ملء الحقول الأساسية: الاسم، النشاط، المدينة، الهاتف');
         const text = `📢 *طلب تعاون CCM*%0A👤 الاسم: ${name}%0A💼 المسمى: ${job}%0A🏢 النشاط: ${business}%0A📂 النوع: ${busType}%0A📍 المكان: ${city}%0A📞 الهاتف: ${phone}%0A📧 البريد: ${email}%0A⭐ الخدمات: ${services}%0A📱 حسابات: ${hasSocial} - متابعين: ${followers}%0A📋 سبق التعاون: ${prev}%0A🎯 الهدف: ${goal}%0A📆 عمر النشاط: ${age}%0A💰 الميزانية: ${budget}%0A📝 ملاحظات: ${notes}`;
         window.open(`https://wa.me/962781144716?text=${text}`, '_blank');
         alert('تم فتح واتساب، يرجى إرسال الرسالة');
         joinPopup.style.display = 'none';
     });
+
     window.onclick = (e) => {
         if(e.target === aboutPopup) aboutPopup.style.display = 'none';
         if(e.target === joinPopup) joinPopup.style.display = 'none';
