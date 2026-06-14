@@ -2,615 +2,694 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="description" content="CCM | Creative Content Marketing - وكالة تسويق إبداعية متكاملة">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>CCM | Creative Content Marketing</title>
-    <!-- Font Awesome 6 -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- Google Fonts - Cairo -->
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            scroll-behavior: smooth;
         }
 
         body {
-            font-family: 'Cairo', sans-serif;
-            background: #ffffff;
-            color: #0f172a;
+            background-color: #ffffff;
+            font-family: 'Tajawal', 'Segoe UI', 'Cairo', system-ui, -apple-system, sans-serif;
             overflow-x: hidden;
-            line-height: 1.45;
-            font-size: 14px;
+            scroll-behavior: smooth;
         }
 
+        html {
+            font-size: 16px;
+        }
+
+        /* اللون الأساسي الكحلي */
         :root {
-            --brand-yellow: #f4eb16;
-            --brand-dark: #0a0f1c;
-            --gray-bg: #f9fafc;
-            --card-shadow: 0 12px 24px -10px rgba(0, 0, 0, 0.05);
-            --hover-shadow: 0 20px 28px -12px rgba(0, 0, 0, 0.1);
-            --transition-smooth: all 0.3s ease;
+            --primary-navy: #0a2b3e;
+            --primary-navy-light: #1e4a6e;
+            --gold-accent: #f5e56b;
         }
 
-        /* شريط علوي أعلى قليلاً وبارتفاع أقل */
+        /* شريط علوي */
         .navbar {
-            background: rgba(244, 235, 22, 0.98);
-            padding: 0.35rem 5%;
+            background-color: var(--primary-navy);
+            padding: 0.8rem 2rem;
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            justify-content: space-between;
             flex-wrap: wrap;
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
-        }
-        /* لوغو أصغر */
-        .navbar-logo {
-            height: 36px;
-            width: auto;
-            border-radius: 12px;
-        }
-        .nav-links {
-            display: flex;
-            gap: 1.5rem;
-            list-style: none;
-        }
-        .nav-links li {
-            font-weight: 700;
-            font-size: 0.8rem;
-            padding: 0.2rem 0;
-            cursor: pointer;
-            border-bottom: 2px solid transparent;
-            transition: var(--transition-smooth);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
         }
 
-        /* Hero section: نصوص أصغر تناسب الصورة */
-        .hero {
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .logo-img {
+            height: 50px;
+            width: auto;
+            object-fit: contain;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+        }
+
+        .brand-text {
+            color: white;
+            line-height: 1.2;
+        }
+
+        .brand-name {
+            font-size: 1.6rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .brand-name small {
+            font-size: 0.75rem;
+            font-weight: 400;
+            display: block;
+            color: var(--gold-accent);
+        }
+
+        .slogan {
+            font-size: 0.75rem;
+            opacity: 0.9;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: 0.3s;
+            padding: 0.5rem 0;
+        }
+
+        .nav-links li a:hover {
+            color: var(--gold-accent);
+            border-bottom: 2px solid var(--gold-accent);
+        }
+
+        /* القسم الرئيسي مع الصورة المتلاشية */
+        .hero-section {
             display: flex;
             align-items: center;
             justify-content: space-between;
+            padding: 2rem 5%;
+            background: white;
             flex-wrap: wrap;
-            padding: 1.5rem 5% 2rem;
-            gap: 1.5rem;
-            background: linear-gradient(145deg, #ffffff, #fffcf0);
+            gap: 2rem;
         }
+
         .hero-text {
-            flex: 1.5;
+            flex: 1.2;
         }
-        /* لوغو رئيسي أصغر */
-        .main-logo {
-            max-width: 140px;
-            width: 100%;
-            margin-bottom: 0.6rem;
-            border-radius: 1rem;
+
+        .hero-text h1 {
+            font-size: 2.8rem;
+            color: var(--primary-navy);
         }
-        /* جعل الشعار أصفر */
-        .hero-slogan {
-            font-size: 1.1rem;
-            font-weight: 800;
-            color: var(--brand-yellow);
-            background: none;
-            -webkit-background-clip: unset;
-            background-clip: unset;
-            color: #eab308;
-            text-shadow: 0 1px 1px rgba(0,0,0,0.02);
-            margin: 0.3rem 0 0.3rem;
-            line-height: 1.3;
+
+        .hero-text .ccm-meaning {
+            font-size: 1.2rem;
+            color: #2c5a6e;
+            margin-top: 0.5rem;
         }
-        .hero-description {
-            font-size: 0.8rem;
-            color: #334155;
-            border-right: 3px solid var(--brand-yellow);
-            padding-right: 0.6rem;
+
+        .hero-image {
+            flex: 1;
+            position: relative;
+            display: flex;
+            justify-content: center;
         }
-        /* الصورة كما هي بدون تغيير حجمها */
+
         .hero-image img {
             max-width: 100%;
-            border-radius: 1.8rem;
-            max-height: 220px;
-            object-fit: contain;
-            width: auto;
-            box-shadow: 0 12px 20px -10px rgba(0,0,0,0.1);
+            width: 380px;
+            filter: drop-shadow(0 25px 20px rgba(0,0,0,0.3));
+            mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 100%);
+            -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 100%);
+            transition: transform 0.3s;
         }
-        
-        /* animate-on-scroll للخدمات (تظهر عند التمرير) */
-        .animate-on-scroll {
+
+        /* حركات الانبثاق */
+        .fade-up {
             opacity: 0;
-            transform: translateY(25px);
-            transition: var(--transition-smooth);
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.2, 0.9, 0.4, 1.1);
         }
-        .animate-on-scroll.visible {
+
+        .fade-up.visible {
             opacity: 1;
             transform: translateY(0);
         }
-        
-        /* تأثير إضافي لأيقونات الخدمات: نبثق من العدم (scale) */
-        .service-item {
-            background: var(--gray-bg);
-            border-radius: 1.4rem;
-            padding: 1rem 0.8rem;
+
+        /* رسالة والله و نور الويبسايت - باللون الكحلي نفسه */
+        .welcome-message {
             text-align: center;
-            transition: all 0.25s ease;
-            border: 1px solid #eff3f6;
-            opacity: 0;
-            transform: scale(0.92);
-            transition: opacity 0.4s ease, transform 0.3s ease;
+            padding: 4rem 1rem;
+            background: #fef9e6;
+            margin: 2rem 0;
+            border-radius: 40px;
         }
-        .service-item.visible-item {
-            opacity: 1;
-            transform: scale(1);
+
+        .arabic-fancy {
+            font-size: 2.2rem;
+            font-family: 'Amiri', 'Tajawal', serif;
+            font-weight: bold;
+            color: var(--primary-navy);  /* اللون الكحلي نفسه */
+            text-shadow: 2px 2px 8px rgba(10,43,62,0.15);
         }
-        .service-item i {
-            font-size: 1.7rem;
-            padding: 6px;
-            background: white;
-            border-radius: 50px;
-            margin-bottom: 0.5rem;
-            display: inline-block;
-        }
-        .service-item h3 {
-            font-size: 0.95rem;
-            font-weight: 800;
-            margin-bottom: 0.2rem;
-        }
-        .service-item p {
-            font-size: 0.7rem;
-            color: #475569;
-        }
-        
-        /* باقي العناصر */
-        .section-card {
-            background: #ffffff;
-            margin: 1.5rem 5%;
-            padding: 1.2rem 1.2rem;
-            border-radius: 1.6rem;
-            box-shadow: var(--card-shadow);
-            border: 1px solid rgba(244, 235, 22, 0.2);
-        }
-        .section-title {
-            font-size: 1.25rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-            border-right: 5px solid var(--brand-yellow);
-            padding-right: 0.7rem;
-        }
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 0.9rem;
-        }
-        /* crown cards */
-        .two-crowns {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
+
+        .small-joke {
+            font-size: 1rem;
+            color: #2c3e2f;
             margin-top: 0.5rem;
         }
-        .crown-card {
-            flex: 1;
-            min-width: 170px;
-            background: #fffef7;
-            border-radius: 1.5rem;
-            padding: 0.8rem 0.8rem;
-            text-align: center;
+
+        /* قسم الخدمات - شكل مربعات 2 جنب بعض */
+        .services-grid {
+            padding: 3rem 5%;
+            background: #f8fafc;
         }
-        .crown-card img {
-            max-width: 70px;
-            max-height: 60px;
+
+        .services-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 2rem auto;
         }
-        .crown-card h3 {
-            font-size: 1rem;
-        }
-        /* شركاؤنا */
-        .companies-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.7rem;
-            justify-content: center;
-        }
-        .company-logo-card {
+
+        .service-card {
             background: white;
-            border-radius: 1rem;
-            padding: 0.5rem;
-            width: 85px;
+            border-radius: 2rem;
+            padding: 1.5rem 1rem;
             text-align: center;
+            box-shadow: 0 20px 30px -12px rgba(0,0,0,0.1);
+            transition: all 0.4s ease;
+            cursor: default;
+            opacity: 0;
+            transform: translateY(25px);
+            transition: all 0.6s ease;
+            border-bottom: 4px solid var(--primary-navy);
         }
-        .company-logo-card img {
-            max-width: 48px;
-            max-height: 48px;
+
+        .service-card.visible-card {
+            opacity: 1;
+            transform: translateY(0);
         }
-        .company-logo-card p {
-            font-size: 0.6rem;
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 35px -12px rgba(10,43,62,0.2);
         }
-        /* أزرار */
-        .btn-join, .signup-btn {
-            background: var(--brand-yellow);
-            padding: 0.5rem 1.2rem;
-            border-radius: 40px;
-            font-size: 0.8rem;
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .service-title {
+            font-size: 1.3rem;
             font-weight: 800;
+            color: var(--primary-navy);
+        }
+
+        .btn-join {
+            display: inline-block;
+            background: var(--primary-navy);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 40px;
+            text-decoration: none;
+            margin-top: 2rem;
+            font-weight: bold;
+            transition: 0.3s;
             border: none;
             cursor: pointer;
+            font-size: 1rem;
         }
-        /* contact section بدون إيموجي وأيقونات قابلة للتمرير الأفقي */
-        .contact-modern-box {
-            background: linear-gradient(125deg, #fffef9, #ffffff);
-            border-radius: 1.8rem;
-            padding: 1.2rem 1rem;
-            margin: 1.5rem 5%;
-            text-align: center;
+
+        .btn-join:hover {
+            background: #1e4a6e;
+            transform: scale(1.02);
         }
-        .contact-scroll-wrapper {
-            width: 100%;
+
+        /* الشركات المتعاونة سلايدر */
+        .clients-section {
+            padding: 3rem 1rem;
+            background: white;
             overflow-x: auto;
             white-space: nowrap;
             scrollbar-width: thin;
-            padding-bottom: 6px;
-            -webkit-overflow-scrolling: touch;
         }
-        .contact-icons-grid {
+
+        .clients-flex {
             display: inline-flex;
-            gap: 0.9rem;
-            padding: 0 0.5rem;
+            gap: 2rem;
+            padding: 1rem 2rem;
         }
-        .contact-card {
-            background: #ffffff;
-            border-radius: 2rem;
-            padding: 0.5rem 1rem;
-            min-width: 95px;
-            text-decoration: none;
-            color: #0f172a;
-            border: 1px solid #e9edf0;
-            font-size: 0.7rem;
-            font-weight: 600;
+
+        .client-logo {
             display: inline-flex;
             flex-direction: column;
             align-items: center;
+            background: #f1f5f9;
+            border-radius: 28px;
+            padding: 1rem;
+            width: 200px;
             white-space: normal;
+            box-shadow: 0 5px 12px rgba(0,0,0,0.05);
             transition: 0.2s;
         }
-        .contact-card i {
-            font-size: 1.3rem;
-            margin-bottom: 4px;
+
+        .client-logo img {
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
         }
-        /* تصغير الفوتر */
-        footer {
-            background: #0a0f1c;
-            color: #cbd5e6;
-            padding: 1rem;
-            font-size: 0.65rem;
+
+        .call-to-action {
+            text-align: center;
+            margin: 3rem 0;
         }
-        /* popup */
-        .page-about {
+
+        .social-footer {
+            background: var(--primary-navy);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+
+        .social-icons a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: 0.2s;
+        }
+
+        .social-icons a:hover {
+            color: var(--gold-accent);
+        }
+
+        /* مودال النموذج */
+        .modal {
             display: none;
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(10, 15, 28, 0.95);
-            backdrop-filter: blur(6px);
+            background: rgba(0,0,0,0.7);
             z-index: 2000;
             justify-content: center;
             align-items: center;
         }
-        .about-content {
+
+        .modal-content {
             background: white;
-            max-width: 90%;
-            width: 460px;
-            padding: 1.2rem;
-            border-radius: 1.8rem;
-            position: relative;
+            max-width: 700px;
+            width: 90%;
+            max-height: 85vh;
+            overflow-y: auto;
+            border-radius: 32px;
+            padding: 2rem;
+            direction: rtl;
         }
-        .close-about {
-            position: absolute;
-            top: 0.6rem;
-            left: 1rem;
-            background: var(--brand-yellow);
-            width: 28px;
-            height: 28px;
-            border-radius: 30px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 0.7rem;
+            margin-top: 0.3rem;
+            border-radius: 16px;
+            border: 1px solid #ccc;
+        }
+
+        button[type="submit"] {
+            background: var(--primary-navy);
+            color: white;
+            border: none;
+            padding: 0.8rem;
+            width: 100%;
+            border-radius: 40px;
+            font-size: 1.2rem;
             cursor: pointer;
         }
-        /* form */
-        .form-wa {
-            display: flex;
-            flex-direction: column;
-            gap: 0.7rem;
+
+        /* خلفية اللوجو الشفافة */
+        .logo-bg-icon {
+            position: absolute;
+            opacity: 0.3;
+            pointer-events: none;
+            z-index: 0;
         }
-        .form-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.7rem;
+
+        /* صفحة من نحن */
+        .about-page {
+            display: none;
+            padding: 0;
+            background: white;
+            min-height: 100vh;
         }
-        .form-group {
-            flex: 1;
+
+        .about-page.active-page {
+            display: block;
         }
-        input, select, textarea {
-            padding: 6px 10px;
-            border-radius: 1.2rem;
-            font-size: 0.75rem;
+
+        .main-page {
+            display: block;
         }
-        label {
-            font-size: 0.65rem;
+
+        .hidden-page {
+            display: none;
         }
-        @media (max-width: 640px) {
-            .hero-slogan { font-size: 0.95rem; }
-            .service-item h3 { font-size: 0.85rem; }
-            .services-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
-            .contact-card { min-width: 80px; font-size: 0.6rem; padding: 0.4rem 0.6rem; }
+
+        /* استجابة للموبايل مع ثبات الأحجام */
+        @media (max-width: 750px) {
+            .navbar {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .hero-section {
+                flex-direction: column;
+            }
+            .hero-image img {
+                width: 280px;
+            }
+            .nav-links {
+                gap: 1rem;
+            }
+            .services-container {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
+            }
+            .service-card {
+                padding: 1rem;
+            }
+            .service-title {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (min-width: 751px) and (max-width: 1024px) {
+            .services-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
     </style>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&family=Amiri:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
 
-<div class="navbar">
-    <img class="navbar-logo" src="https://github.com/basheer-49/CCM/blob/main/%D9%84%D9%8A%D9%86%D9%83%D9%8A%D8%AF%20%D8%A7%D9%86%20%D8%A8%D8%A7%D9%86%D8%B1%20(1080%20x%201080%20px)%20(6).png?raw=true" alt="CCM logo">
-    <ul class="nav-links">
-        <li id="homeLink">الرئيسية</li>
-        <li id="servicesLink">خدماتنا</li>
-        <li id="contactLink">تواصل</li>
-        <li id="aboutLink">من نحن</li>
-    </ul>
-</div>
-
-<!-- Hero section: نصوص أصغر -->
-<div id="mainHome" class="hero">
-    <div class="hero-text">
-        <img class="main-logo" src="https://github.com/basheer-49/CCM/blob/main/%D9%84%D9%8A%D9%86%D9%83%D9%8A%D8%AF%20%D8%A7%D9%86%20%D8%A8%D8%A7%D9%86%D8%B1%20(1080%20x%201080%20px)%20(6).png?raw=true" alt="CCM">
-        <div class="hero-slogan">أول وكالة تسويق عندها شغف قد الدنيا للملايين</div>
-        <div class="hero-description">Creative Content Marketing | نصنع المحتوى الذي يحرك الأسواق</div>
-        <div style="margin-top: 0.8rem;">
-            <button class="btn-join" id="heroJoinBtn">ابدأ الآن <i class="fas fa-arrow-left"></i></button>
-        </div>
-    </div>
-    <div class="hero-image">
-        <img src="https://github.com/basheer-49/CCM/blob/main/Untitled%20design%20(22).png?raw=true" alt="Marketing Creative">
-    </div>
-</div>
-
-<div id="scrollContent">
-    <!-- بطاقة ترحيبية -->
-    <div class="animate-on-scroll section-card" style="text-align: center; background: #fffef5;">
-        <h2 style="font-size: 1.2rem; font-weight: 800;">والله و نوَّر الويبسايت <i class="fas fa-smile-wink"></i></h2>
-        <p style="font-size: 0.8rem;">كمل تمرير تستحيش .. اعتبر الويب ويبك، وإحنا هنا نصنع الإبداع</p>
-    </div>
-
-    <!-- خدماتنا – أيقونات تظهر بشكل متحرك عند التمرير -->
-    <div class="animate-on-scroll section-card" id="servicesSection">
-        <div class="section-title"><i class="fas fa-crown"></i> خدماتنا الإبداعية</div>
-        <div class="services-grid" id="servicesGrid">
-            <!-- سيتم إضافة الخدمات عبر JS لتطبيق تأثير الظهور الفردي -->
-        </div>
-    </div>
-
-    <div class="animate-on-scroll" style="text-align: center; margin: 0 5% 1rem">
-        <button class="btn-join" id="joinNowBtn">انضم الآن <i class="fas fa-arrow-left"></i></button>
-    </div>
-
-    <!-- الشعلتان -->
-    <div class="animate-on-scroll section-card">
-        <div class="section-title"><i class="fas fa-fire"></i> قيادات استراتيجية</div>
-        <div class="two-crowns">
-            <div class="crown-card">
-                <img src="https://raw.githubusercontent.com/basheer-49/CCM/c4e47c07b37247d2a7548db351c93bc921929ec1/%D9%84%D9%8A%D9%86%D9%83%D9%8A%D8%AF%20%D8%A7%D9%86%20%D8%A8%D8%A7%D9%86%D8%B1%20(1080%20x%201080%20px)%20(3).png" alt="Wrap Offer">
-                <h3>Wrap Offer</h3>
-                <p>حلول تسويقية متكاملة</p>
-            </div>
-            <div class="crown-card">
-                <img src="https://github.com/basheer-49/CCM/blob/main/%D9%84%D9%8A%D9%86%D9%83%D9%8A%D8%AF%20%D8%A7%D9%86%20%D8%A8%D8%A7%D9%86%D8%B1%20(1080%20x%201080%20px).png?raw=true" alt="البشير بن محمد أبو عمر">
-                <h3>البشير بن محمد أبو عمر</h3>
-                <p>الشركة الأم - الريادة في التسويق</p>
+<div class="main-page" id="mainPage">
+    <div class="navbar">
+        <div class="logo-area">
+            <img src="https://github.com/basheer-49/CCM/blob/main/%D9%84%D9%8A%D9%86%D9%83%D9%8A%D8%AF%20%D8%A7%D9%86%20%D8%A8%D8%A7%D9%86%D8%B1%20(1080%20x%201080%20px)%20(6).png?raw=true" alt="logo" class="logo-img">
+            <div class="brand-text">
+                <div class="brand-name">CCM <small>Creative Content Marketing</small></div>
+                <div class="slogan">أول وكالة تسويق عندها هالقد شغف</div>
             </div>
         </div>
+        <ul class="nav-links">
+            <li><a href="#" id="homeLink">الرئيسية</a></li>
+            <li><a href="#" id="servicesLink">خدماتنا</a></li>
+            <li><a href="#" id="contactLink">تواصل</a></li>
+            <li><a href="#" id="aboutUsLink">من نحن</a></li>
+        </ul>
     </div>
 
-    <!-- شركاؤنا -->
-    <div class="animate-on-scroll section-card">
-        <div class="section-title"><i class="fas fa-handshake"></i> شركاؤنا و عملاؤنا</div>
-        <div class="companies-grid" id="companiesGrid"></div>
+    <!-- صورة خلفية شفافة للخدمات (لوجو شفاف) -->
+    <div style="position: relative;">
+        <img src="https://github.com/basheer-49/CCM/blob/main/%D9%84%D9%8A%D9%86%D9%83%D9%8A%D8%AF%20%D8%A7%D9%86%20%D8%A8%D8%A7%D9%86%D8%B1%20(1080%20x%201080%20px)%20(6).png?raw=true" id="floatingLogoBg" style="position: absolute; opacity: 0.15; width: 260px; top: 200px; right: 10px; pointer-events: none; z-index: 0;">
     </div>
 
-    <div class="animate-on-scroll section-card" style="text-align: center;">
-        <h2 style="font-size: 1.2rem; font-weight: 800;">شو بتستنى؟ سجل معنا</h2>
-        <button id="signupFinalBtn" class="signup-btn" style="margin-top: 0.6rem;">تسجيل الآن <i class="fas fa-user-plus"></i></button>
-    </div>
-
-    <!-- قسم تواصل معنا: بدون إيموجي وأيقونات تمرير أفقي -->
-    <div class="contact-modern-box animate-on-scroll" id="contactSection">
-        <h2 style="font-size: 1.2rem; font-weight: 800;">تواصل معنا</h2>
-        <p style="font-size: 0.75rem;">جميع قنوات التواصل متاحة يمكنك التمرير للمزيد</p>
-        <div class="contact-scroll-wrapper">
-            <div class="contact-icons-grid">
-                <a href="tel:+962781144716" class="contact-card"><i class="fas fa-phone-alt"></i><span>0781144716</span></a>
-                <a href="https://wa.me/962781144716" target="_blank" class="contact-card"><i class="fab fa-whatsapp"></i><span>واتساب</span></a>
-                <a href="https://www.instagram.com/ccm.jor" target="_blank" class="contact-card"><i class="fab fa-instagram"></i><span>انستغرام</span></a>
-                <a href="https://web.facebook.com/profile.php?id=61566348847213" target="_blank" class="contact-card"><i class="fab fa-facebook"></i><span>فيسبوك</span></a>
-                <a href="mailto:BASHEER.WORKED@GMAIL.COM" class="contact-card"><i class="fas fa-envelope"></i><span>البريد</span></a>
-                <a href="https://www.linkedin.com/company/ccm-jo/" target="_blank" class="contact-card"><i class="fab fa-linkedin"></i><span>لينكد إن</span></a>
-            </div>
+    <div class="hero-section">
+        <div class="hero-text">
+            <h1>CCM</h1>
+            <div class="ccm-meaning"><strong>Creative Content Marketing</strong> – شغف يصنع التأثير</div>
+            <p style="margin-top: 1rem;">نساعد علامتك التجارية تنمو بحلول تسويقية مبتكرة</p>
         </div>
+        <div class="hero-image">
+            <img src="https://github.com/basheer-49/C/blob/main/Untitled%20design%20(23).png?raw=true" alt="hero creative">
+        </div>
+    </div>
+
+    <!-- رسالة عند التمرير بلون كحلي -->
+    <div class="welcome-message fade-up">
+        <div class="arabic-fancy">والله و نوَّر الويبسايت</div>
+        <div class="small-joke">كمل تمرير تستحيش .. اعتبر الويب ويبك 🤍</div>
+    </div>
+
+    <!-- قائمة الخدمات بشكل مربعات متجاوبة -->
+    <div class="services-grid" id="servicesSection">
+        <h2 style="text-align:center; margin-bottom:1rem; color:var(--primary-navy);">خدماتنا الإبداعية</h2>
+        <div class="services-container" id="servicesList"></div>
+        <div style="text-align:center;"><button class="btn-join" id="joinNowBtnMain">انضم الآن</button></div>
+    </div>
+
+    <!-- شركات تعاونا معها (سلايدر أفقي) -->
+    <div class="clients-section fade-up" id="clientsSlider">
+        <h2 style="text-align:center; color:var(--primary-navy);">شركاء النجاح</h2>
+        <div class="clients-flex" id="clientsFlex"></div>
+    </div>
+
+    <div class="call-to-action fade-up">
+        <h2 style="color:var(--primary-navy);">✨ شو بتستنى؟ سجل معنا ✨</h2>
+        <button class="btn-join" id="joinNowBtn2" style="margin-top: 1rem;">تسجيل</button>
+    </div>
+
+    <div class="social-footer">
+        <div class="social-icons">
+            <a href="tel:0781144716"><i class="fas fa-phone"></i> 0781144716</a>
+            <a href="https://wa.me/962781144716" target="_blank"><i class="fab fa-whatsapp"></i> واتساب</a>
+            <a href="https://www.instagram.com/ccm.jor?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+            <a href="https://web.facebook.com/profile.php?id=61566348847213&locale=ar_AR" target="_blank"><i class="fab fa-facebook"></i> Facebook</a>
+            <a href="mailto:BASHEER.WORKED@GMAIL.COM"><i class="fas fa-envelope"></i> Email</a>
+            <a href="https://www.linkedin.com/company/ccm-jo/?viewAsMember=true" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+        </div>
+        <p>جميع حقوق النشر محفوظة لـ Basheer &copy; 2026</p>
     </div>
 </div>
 
-<footer>
-    <p>جميع حقوق النشر محفوظة لـ Basheer & CCM © 2025</p>
-</footer>
-
-<!-- About modal -->
-<div id="aboutPage" class="page-about">
-    <div class="about-content">
-        <div class="close-about" id="closeAboutBtn">✖</div>
-        <img src="https://github.com/basheer-49/CCM/blob/main/%D9%84%D9%8A%D9%86%D9%83%D9%8A%D8%AF%20%D8%A7%D9%86%20%D8%A8%D8%A7%D9%86%D8%B1%20(1080%20x%201080%20px)%20(6).png?raw=true" style="width: 70px;">
-        <h2 style="font-size: 1.1rem; color:#b8a900;">من نحن - CCM</h2>
-        <p style="font-size: 0.75rem;">شركة رائدة في التسويق الإبداعي، خبرة من 2019. يديرها <strong>بشير محمد أبو عمر</strong> وفريق من المبدعين. نؤمن أن كل علامة تجارية تستحق قصة فريدة.</p>
-        <p style="font-size: 0.75rem;">نقدم حلولاً تسويقية شاملة: استراتيجيات محتوى، إنتاج فيديو، تصميم جرافيك، تحسين محركات بحث SEO، وبناء هويات رقمية.</p>
+<!-- صفحة من نحن الثانية -->
+<div id="aboutPage" class="about-page">
+    <div class="navbar" style="background:var(--primary-navy); justify-content: space-between;">
+        <div style="display:flex; align-items:center; gap:10px;">
+            <img src="https://github.com/basheer-49/CCM/blob/main/%D9%84%D9%8A%D9%86%D9%83%D9%8A%D8%AF%20%D8%A7%D9%86%20%D8%A8%D8%A7%D9%86%D8%B1%20(1080%20x%201080%20px)%20(6).png?raw=true" style="height:45px;">
+            <span style="color:white; font-weight:bold;">من نحن - CCM</span>
+        </div>
+        <button id="backHomeBtn" style="background:var(--gold-accent); border:none; padding:8px 18px; border-radius:30px; font-weight:bold; cursor:pointer; color:#0a2b3e;">🏠 العودة للرئيسية</button>
+    </div>
+    <div style="max-width:1000px; margin:3rem auto; padding:2rem; background:#fef9e6; border-radius:48px;">
+        <div style="text-align:center;">
+            <img src="https://github.com/basheer-49/CCM/blob/main/%D9%84%D9%8A%D9%86%D9%83%D9%8A%D8%AF%20%D8%A7%D9%86%20%D8%A8%D8%A7%D9%86%D8%B1%20(1080%20x%201080%20px)%20(6).png?raw=true" style="width:150px; margin-bottom:1rem;">
+            <h1 style="color:var(--primary-navy);">شركة CCM للتسويق الإبداعي</h1>
+            <p style="font-size:1.2rem; margin-top:1rem;">شركة رائدة في مجال التسويق بخبرة تمتد منذ عام 2019، بقيادة مديرها التنفيذي المؤسس <strong>بشير محمد أبو عمر</strong>.</p>
+            <p style="margin-top:1rem;">نحن لسنا مجرد وكالة تسويق، نحن شركاء نجاح. نقدم حلولاً مبتكرة تعتمد على تحليل السوق وفهم العمق الاستراتيجي. من المحتوى الإبداعي إلى الإعلانات المؤثرة، ومن التصميم الجرافيكي إلى تطوير المواقع – نصنع لك حضوراً رقمياً استثنائياً. لأن شغفنا الحقيقي هو رؤية علامتك التجارية تتألق.</p>
+            <p style="margin-top:1rem; background:white; border-radius:30px; padding:1rem;">رؤيتنا: الإبداع بلا حدود، ورسالتنا: نسخ قواعد التسويق بشغف. مع CCM، تسويقك قصة لا تُنسى.</p>
+        </div>
     </div>
 </div>
 
-<!-- Join Form Modal -->
-<div id="joinFormModal" class="page-about">
-    <div class="about-content" style="max-width: 500px;">
-        <div class="close-about" id="closeJoinForm">✖</div>
-        <h2 style="font-size: 1rem; color:#b8a900;">📋 نموذج طلب التعاون</h2>
-        <div class="form-wa">
-            <div class="form-row">
-                <div class="form-group"><label>الاسم الكامل *</label><input type="text" id="fullName"></div>
-                <div class="form-group"><label>المسمى الوظيفي</label><select id="jobTitle"><option>المالك</option><option>المدير العام</option><option>مسؤول تسويق</option><option>أخرى</option></select></div>
-            </div>
-            <div class="form-row">
-                <div class="form-group"><label>اسم النشاط التجاري *</label><input id="businessName"></div>
-                <div class="form-group"><label>نوع النشاط *</label><input id="businessType"></div>
-            </div>
-            <div class="form-row">
-                <div class="form-group"><label>الدولة / المدينة *</label><input id="city"></div>
-                <div class="form-group"><label>رقم الهاتف / واتساب *</label><input id="phone"></div>
-            </div>
-            <div class="form-group"><label>البريد الإلكتروني</label><input id="email" type="email"></div>
-            <div class="form-group"><label>الخدمات التسويقية المطلوبة *</label><input id="servicesInterest"></div>
-            <div class="form-row">
-                <div class="form-group"><label>حسابات سوشال ميديا؟</label><select id="hasSocial"><option>نعم</option><option>لا</option></select></div>
-                <div class="form-group"><label>عدد المتابعين</label><input id="followersCount"></div>
-            </div>
-            <div class="form-row">
-                <div class="form-group"><label>سبق العمل مع شركة تسويق؟</label><select id="prevWork"><option>نعم</option><option>لا</option></select></div>
-                <div class="form-group"><label>الهدف الرئيسي</label><input id="mainGoal"></div>
-            </div>
-            <div class="form-row">
-                <div class="form-group"><label>عمر النشاط التجاري</label><input id="businessAge"></div>
-                <div class="form-group"><label>الميزانية التقريبية</label><input id="budget"></div>
-            </div>
-            <div class="form-group"><label>تفاصيل إضافية</label><textarea rows="2" id="notes"></textarea></div>
-            <button class="submit-form-wa" id="sendToWhatsApp"><i class="fab fa-whatsapp"></i> إرسال إلى واتساب</button>
-        </div>
+<!-- نموذج الواتساب مودال -->
+<div id="collabModal" class="modal">
+    <div class="modal-content">
+        <h3>📋 نموذج طلب التعاون</h3>
+        <p>نشكركم على اهتمامكم بالتعاون معنا. يرجى تعبئة النموذج التالي بدقة، وسيتم التواصل معكم.</p>
+        <form id="collabForm">
+            <div class="form-group"><label>الاسم الكامل *</label><input type="text" id="fullName" required></div>
+            <div class="form-group"><label>الصفة / المسمّى الوظيفي *</label><select id="position"><option>المالك</option><option>المدير العام</option><option>مسؤول التسويق</option><option>أخرى</option></select></div>
+            <div class="form-group"><label>اسم النشاط التجاري / الشركة *</label><input type="text" id="businessName" required></div>
+            <div class="form-group"><label>نوع النشاط التجاري *</label><input type="text" id="businessType" placeholder="مطعم - فندق - مقهى ..." required></div>
+            <div class="form-group"><label>الدولة / المدينة *</label><input type="text" id="city" required></div>
+            <div class="form-group"><label>رقم الهاتف / واتساب *</label><input type="tel" id="phone" required></div>
+            <div class="form-group"><label>البريد الإلكتروني *</label><input type="email" id="email" required></div>
+            <div class="form-group"><label>ما نوع الخدمات التسويقية التي تهتم بها؟ *</label><select id="serviceType"><option>إعلانات ممولة</option><option>إدارة حسابات التواصل الاجتماعي</option><option>تصميم جرافيك</option><option>بناء هوية تجارية (Branding)</option><option>تصوير ومونتاج</option><option>استشارات تسويقية</option><option>أخرى</option></select></div>
+            <div class="form-group"><label>هل لديك حسابات على منصات التواصل الإجتماعي؟</label><select id="hasSocial"><option>نعم</option><option>لا</option></select><input type="text" id="followersCount" placeholder="إذا نعم، ذكر عدد المتابعين التقريبي"></div>
+            <div class="form-group"><label>هل سبق لك العمل مع شركة تسويق؟ *</label><select id="workedBefore"><option>نعم</option><option>لا</option></select></div>
+            <div class="form-group"><label>ما الهدف الرئيسي من التعاون معنا؟ *</label><input type="text" id="goal" required></div>
+            <div class="form-group"><label>عُمر النشاط التجاري - الشركة *</label><input type="text" id="age" required></div>
+            <div class="form-group"><label>الميزانية التقريبية المخصصة للتسويق *</label><input type="text" id="budget" required></div>
+            <div class="form-group"><label>أي تفاصيل أو ملاحظات إضافية</label><textarea id="notes" rows="2"></textarea></div>
+            <button type="submit" id="submitFormBtn">إرسال إلى واتساب</button>
+        </form>
     </div>
 </div>
 
 <script>
-    // بيانات الخدمات
-    const servicesData = [
-        { icon: "fas fa-pen-fancy", title: "تسويق المحتوى", desc: "استراتيجيات جذابة" },
-        { icon: "fas fa-chart-line", title: "تمويل المحتوى", desc: "خطط مدعومة" },
-        { icon: "fas fa-video", title: "إنتاج المحتوى الدعائي", desc: "فيديوهات احترافية" },
-        { icon: "fas fa-camera", title: "التصوير", desc: "بصمة بصرية" },
-        { icon: "fas fa-palette", title: "التصميم الجرافيكي", desc: "هوية بصرية و بوسترات" },
-        { icon: "fas fa-code", title: "تصميم المواقع", desc: "تجربة رقمية سلسة" },
-        { icon: "fas fa-print", title: "المطبوعات", desc: "هوية ورقية متقنة" },
-        { icon: "fas fa-chart-pie", title: "خدمات دراسة السوق", desc: "تحليل دقيق" },
-        { icon: "fas fa-people-arrows", title: "دراسة المنافسين", desc: "استباق النجاح" },
-        { icon: "fas fa-chart-simple", title: "تحسين محركات البحث SEO", desc: "ظهور متقدم" }
+    // قائمة الخدمات (مع أيقونات)
+    const servicesArray = [
+        { name: "تسويق المحتوى", icon: "📝" }, { name: "خدمات تمويل المحتوى", icon: "💰" }, 
+        { name: "انتاج المحتوى الدعائي", icon: "🎬" }, { name: "التصوير", icon: "📸" }, 
+        { name: "التصميم الجرافيكي", icon: "🎨" }, { name: "تصميم المواقع و التطبيقات", icon: "💻" }, 
+        { name: "المطبوعات", icon: "🖨️" }, { name: "خدمات دراسة السوق", icon: "📊" }, 
+        { name: "خدمات دراسة المنافسين", icon: "⚔️" }, { name: "تحسين محركات البحث SEO", icon: "🔍" }
     ];
 
-    // بناء شبكة الخدمات مع كلاس مخصص للظهور
-    const servicesGrid = document.getElementById('servicesGrid');
-    if(servicesGrid) {
-        servicesData.forEach(service => {
-            const div = document.createElement('div');
-            div.className = 'service-item';
-            div.innerHTML = `<i class="${service.icon}"></i><h3>${service.title}</h3><p>${service.desc}</p>`;
-            servicesGrid.appendChild(div);
-        });
-    }
-
-    // تأثير ظهور الخدمات عند التمرير (كل خدمة على حدة)
-    const serviceItems = document.querySelectorAll('.service-item');
-    const serviceObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if(entry.isIntersecting) {
-                entry.target.classList.add('visible-item');
-                serviceObserver.unobserve(entry.target); // يظهر مرة واحدة
-            }
-        });
-    }, { threshold: 0.2 });
-    serviceItems.forEach(item => serviceObserver.observe(item));
-
-    // شركات العملاء
-    const allCompanies = [
-        { name: "Wrap Offer", logo: "https://raw.githubusercontent.com/basheer-49/CCM/c4e47c07b37247d2a7548db351c93bc921929ec1/%D9%84%D9%8A%D9%86%D9%83%D9%8A%D8%AF%20%D8%A7%D9%86%20%D8%A8%D8%A7%D9%86%D8%B1%20(1080%20x%201080%20px)%20(3).png" },
-        { name: "حنون خدمات نقل", logo: "https://github.com/basheer-49/CCM/blob/main/%D9%84%D9%8A%D9%86%D9%83%D9%8A%D8%AF%20%D8%A7%D9%86%20%D8%A8%D8%A7%D9%86%D8%B1%20(1080%20x%201080%20px)%20(1).png?raw=true" },
-        { name: "دكان بوابة التجارة", logo: "https://github.com/basheer-49/CCM/blob/main/%D9%84%D9%8A%D9%86%D9%83%D9%8A%D8%AF%20%D8%A7%D9%86%20%D8%A8%D8%A7%D9%86%D8%B1%20(1080%20x%201080%20px)%20(10).png?raw=true" },
+    const clientsData = [
+        { name: "CCM", logo: "https://github.com/basheer-49/CCM/blob/main/%D9%84%D9%8A%D9%86%D9%83%D9%8A%D8%AF%20%D8%A7%D9%86%20%D8%A8%D8%A7%D9%86%D8%B1%20(1080%20x%201080%20px)%20(6).png?raw=true" },
+        { name: "WRAP OFFER", logo: "https://raw.githubusercontent.com/basheer-49/CCM/c4e47c07b37247d2a7548db351c93bc921929ec1/%D9%84%D9%8A%D9%86%D9%83%D9%8A%D8%AF%20%D8%A7%D9%86%20%D8%A8%D8%A7%D9%86%D8%B1%20(1080%20x%201080%20px)%20(3).png" },
+        { name: "حنون", logo: "https://github.com/basheer-49/CCM/blob/main/%D9%84%D9%8A%D9%86%D9%83%D9%8A%D8%AF%20%D8%A7%D9%86%20%D8%A8%D8%A7%D9%86%D8%B1%20(1080%20x%201080%20px)%20(1).png?raw=true" },
+        { name: "دكان", logo: "https://github.com/basheer-49/CCM/blob/main/%D9%84%D9%8A%D9%86%D9%83%D9%8A%D8%AF%20%D8%A7%D9%86%20%D8%A8%D8%A7%D9%86%D8%B1%20(1080%20x%201080%20px)%20(10).png?raw=true" },
         { name: "AK UNIFORM", logo: "https://github.com/basheer-49/CCM/blob/main/%D9%84%D9%8A%D9%86%D9%83%D9%8A%D8%AF%20%D8%A7%D9%86%20%D8%A8%D8%A7%D9%86%D8%B1%20(1080%20x%201080%20px)%20(11).png?raw=true" },
         { name: "قصر عثمان", logo: "https://github.com/basheer-49/CCM/blob/main/%D9%84%D9%8A%D9%86%D9%83%D9%8A%D8%AF%20%D8%A7%D9%86%20%D8%A8%D8%A7%D9%86%D8%B1%20(1080%20x%201080%20px)%20(12).png?raw=true" },
         { name: "سقيا الخير", logo: "https://github.com/basheer-49/CCM/blob/main/%D9%84%D9%8A%D9%86%D9%83%D9%8A%D8%AF%20%D8%A7%D9%86%20%D8%A8%D8%A7%D9%86%D8%B1%20(1080%20x%201080%20px)%20(13).png?raw=true" },
-        { name: "رذاذ العطور", logo: "https://github.com/basheer-49/CCM/blob/main/%D9%84%D9%8A%D9%86%D9%83%D9%8A%D8%AF%20%D8%A7%D9%86%20%D8%A8%D8%A7%D9%86%D8%B1%20(1080%20x%201080%20px)%20(14).png?raw=true" },
-        { name: "OCEAN برك", logo: "https://github.com/basheer-49/CCM/blob/main/%D9%84%D9%8A%D9%86%D9%83%D9%8A%D8%AF%20%D8%A7%D9%86%20%D8%A8%D8%A7%D9%86%D8%B1%20(1080%20x%201080%20px)%20(4).png?raw=true" },
+        { name: "رذاذ", logo: "https://github.com/basheer-49/CCM/blob/main/%D9%84%D9%8A%D9%86%D9%83%D9%8A%D8%AF%20%D8%A7%D9%86%20%D8%A8%D8%A7%D9%86%D8%B1%20(1080%20x%201080%20px)%20(14).png?raw=true" },
+        { name: "OCEAN", logo: "https://github.com/basheer-49/CCM/blob/main/%D9%84%D9%8A%D9%86%D9%83%D9%8A%D8%AF%20%D8%A7%D9%86%20%D8%A8%D8%A7%D9%86%D8%B1%20(1080%20x%201080%20px)%20(4).png?raw=true" },
         { name: "PRO PORTAL", logo: "https://github.com/basheer-49/CCM/blob/main/%D9%84%D9%8A%D9%86%D9%83%D9%8A%D8%AF%20%D8%A7%D9%86%20%D8%A8%D8%A7%D9%86%D8%B1%20(1080%20x%201080%20px)%20(5).png?raw=true" },
         { name: "خان زمان", logo: "https://github.com/basheer-49/CCM/blob/main/%D9%84%D9%8A%D9%86%D9%83%D9%8A%D8%AF%20%D8%A7%D9%86%20%D8%A8%D8%A7%D9%86%D8%B1%20(1080%20x%201080%20px)%20(7).png?raw=true" },
         { name: "حلول الوطن", logo: "https://github.com/basheer-49/CCM/blob/main/%D9%84%D9%8A%D9%86%D9%83%D9%8A%D8%AF%20%D8%A7%D9%86%20%D8%A8%D8%A7%D9%86%D8%B1%20(1080%20x%201080%20px)%20(8).png?raw=true" },
-        { name: "الشركة الأم", logo: "https://github.com/basheer-49/CCM/blob/main/%D9%84%D9%8A%D9%86%D9%83%D9%8A%D8%AF%20%D8%A7%D9%86%20%D8%A8%D8%A7%D9%86%D8%B1%20(1080%20x%201080%20px).png?raw=true" }
+        { name: "البشير بن محمد أبو عمر", logo: "https://github.com/basheer-49/CCM/blob/main/%D9%84%D9%8A%D9%86%D9%83%D9%8A%D8%AF%20%D8%A7%D9%86%20%D8%A8%D8%A7%D9%86%D8%B1%20(1080%20x%201080%20px).png?raw=true" }
     ];
-    function displayCompanies() {
-        const container = document.getElementById('companiesGrid');
-        if(container) {
-            container.innerHTML = '';
-            allCompanies.forEach(c => {
-                const card = document.createElement('div');
-                card.className = 'company-logo-card';
-                card.innerHTML = `<img src="${c.logo}" alt="${c.name}" loading="lazy"><p>${c.name}</p>`;
-                container.appendChild(card);
-            });
-        }
-    }
-    displayCompanies();
 
-    // تأثيرات التمرير العامة
-    const animatedElements = document.querySelectorAll('.animate-on-scroll');
-    const generalObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if(entry.isIntersecting) entry.target.classList.add('visible');
+    function buildServices() {
+        const container = document.getElementById('servicesList');
+        container.innerHTML = '';
+        servicesArray.forEach((s, idx) => {
+            const card = document.createElement('div');
+            card.className = 'service-card';
+            card.innerHTML = `<div class="service-icon">${s.icon}</div><div class="service-title">${s.name}</div>`;
+            container.appendChild(card);
         });
-    }, { threshold: 0.1 });
-    animatedElements.forEach(el => generalObserver.observe(el));
+        // مراقبة ظهور الخدمات
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible-card');
+            });
+        }, { threshold: 0.2 });
+        document.querySelectorAll('.service-card').forEach(card => observer.observe(card));
+    }
+    
+    function buildClients() {
+        const flexDiv = document.getElementById('clientsFlex');
+        flexDiv.innerHTML = '';
+        clientsData.forEach(c => {
+            const div = document.createElement('div');
+            div.className = 'client-logo';
+            div.innerHTML = `<img src="${c.logo}" alt="${c.name}" loading="lazy"><span style="margin-top:8px; font-weight:bold;">${c.name}</span>`;
+            flexDiv.appendChild(div);
+        });
+    }
 
-    // تنقل و popups
-    document.getElementById('homeLink')?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-    document.getElementById('servicesLink')?.addEventListener('click', () => document.getElementById('servicesSection')?.scrollIntoView({ behavior: 'smooth' }));
-    document.getElementById('contactLink')?.addEventListener('click', () => document.getElementById('contactSection')?.scrollIntoView({ behavior: 'smooth' }));
-    const aboutPopup = document.getElementById('aboutPage');
-    const joinPopup = document.getElementById('joinFormModal');
-    document.getElementById('aboutLink')?.addEventListener('click', () => aboutPopup.style.display = 'flex');
-    document.getElementById('closeAboutBtn')?.addEventListener('click', () => aboutPopup.style.display = 'none');
-    const openJoin = () => joinPopup.style.display = 'flex';
-    document.getElementById('joinNowBtn')?.addEventListener('click', openJoin);
-    document.getElementById('signupFinalBtn')?.addEventListener('click', openJoin);
-    document.getElementById('heroJoinBtn')?.addEventListener('click', openJoin);
-    document.getElementById('closeJoinForm')?.addEventListener('click', () => joinPopup.style.display = 'none');
+    let modal = document.getElementById('collabModal');
+    function openModal() { modal.style.display = 'flex'; }
+    function closeModal() { modal.style.display = 'none'; }
+    window.onclick = function(e) { if(e.target === modal) closeModal(); }
 
-    // إرسال واتساب
-    document.getElementById('sendToWhatsApp')?.addEventListener('click', () => {
-        const name = document.getElementById('fullName')?.value || '';
-        const job = document.getElementById('jobTitle')?.value || '';
-        const business = document.getElementById('businessName')?.value || '';
-        const busType = document.getElementById('businessType')?.value || '';
-        const city = document.getElementById('city')?.value || '';
-        const phone = document.getElementById('phone')?.value || '';
-        const email = document.getElementById('email')?.value || '';
-        const services = document.getElementById('servicesInterest')?.value || '';
-        const hasSocial = document.getElementById('hasSocial')?.value || '';
-        const followers = document.getElementById('followersCount')?.value || '';
-        const prev = document.getElementById('prevWork')?.value || '';
-        const goal = document.getElementById('mainGoal')?.value || '';
-        const age = document.getElementById('businessAge')?.value || '';
-        const budget = document.getElementById('budget')?.value || '';
-        const notes = document.getElementById('notes')?.value || '';
-        if(!name || !business || !city || !phone) return alert('يرجى ملء الحقول الأساسية: الاسم، النشاط، المدينة، الهاتف');
-        const text = `📢 *طلب تعاون CCM*%0A👤 الاسم: ${name}%0A💼 المسمى: ${job}%0A🏢 النشاط: ${business}%0A📂 النوع: ${busType}%0A📍 المكان: ${city}%0A📞 الهاتف: ${phone}%0A📧 البريد: ${email}%0A⭐ الخدمات: ${services}%0A📱 حسابات: ${hasSocial} - متابعين: ${followers}%0A📋 سبق التعاون: ${prev}%0A🎯 الهدف: ${goal}%0A📆 عمر النشاط: ${age}%0A💰 الميزانية: ${budget}%0A📝 ملاحظات: ${notes}`;
-        window.open(`https://wa.me/962781144716?text=${text}`, '_blank');
-        alert('تم فتح واتساب، يرجى إرسال الرسالة');
-        joinPopup.style.display = 'none';
+    document.getElementById('collabForm').addEventListener('submit', function(e){
+        e.preventDefault();
+        const name = document.getElementById('fullName').value;
+        const position = document.getElementById('position').value;
+        const business = document.getElementById('businessName').value;
+        const typeBus = document.getElementById('businessType').value;
+        const city = document.getElementById('city').value;
+        const phone = document.getElementById('phone').value;
+        const email = document.getElementById('email').value;
+        const serviceType = document.getElementById('serviceType').value;
+        const hasSocial = document.getElementById('hasSocial').value;
+        const followers = document.getElementById('followersCount').value;
+        const worked = document.getElementById('workedBefore').value;
+        const goal = document.getElementById('goal').value;
+        const age = document.getElementById('age').value;
+        const budget = document.getElementById('budget').value;
+        const notes = document.getElementById('notes').value;
+        let msg = `📋 *طلب تعاون CCM*%0A👤 الاسم: ${name}%0A💼 المسمى: ${position}%0A🏢 الشركة: ${business}%0A📌 النشاط: ${typeBus}%0A📍 المدينة: ${city}%0A📞 الهاتف: ${phone}%0A📧 البريد: ${email}%0A🎯 الخدمة: ${serviceType}%0A📱 وسائل تواصل: ${hasSocial} ${followers ? `(${followers})` : ''}%0A📋 عمل سابق مع شركة تسويق: ${worked}%0A🎯 الهدف: ${goal}%0A📅 عمر النشاط: ${age}%0A💰 الميزانية: ${budget}%0A📝 ملاحظات: ${notes}`;
+        window.open(`https://wa.me/962781144716?text=${msg}`, '_blank');
+        closeModal();
+        alert("تم إرسال طلبك بنجاح، سنتواصل معك قريباً");
     });
 
-    window.onclick = (e) => {
-        if(e.target === aboutPopup) aboutPopup.style.display = 'none';
-        if(e.target === joinPopup) joinPopup.style.display = 'none';
-    };
+    document.querySelectorAll('#joinNowBtnMain, #joinNowBtn2').forEach(btn => btn.addEventListener('click', openModal));
+
+    // تفعيل السكرول انبثاق (fade-up)
+    const fadeElements = document.querySelectorAll('.fade-up');
+    const scrollObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => { if(entry.isIntersecting) entry.target.classList.add('visible'); });
+    }, { threshold: 0.2 });
+    fadeElements.forEach(el => scrollObserver.observe(el));
+
+    // التنقل بين الصفحات
+    const mainPage = document.getElementById('mainPage');
+    const aboutPageDiv = document.getElementById('aboutPage');
+    document.getElementById('aboutUsLink').addEventListener('click', (e) => {
+        e.preventDefault();
+        mainPage.classList.add('hidden-page');
+        mainPage.style.display = 'none';
+        aboutPageDiv.classList.add('active-page');
+        aboutPageDiv.style.display = 'block';
+    });
+    document.getElementById('backHomeBtn').addEventListener('click', () => {
+        aboutPageDiv.style.display = 'none';
+        mainPage.style.display = 'block';
+        mainPage.classList.remove('hidden-page');
+    });
+    document.getElementById('homeLink').addEventListener('click', (e) => {
+        e.preventDefault();
+        if(aboutPageDiv.style.display === 'block') aboutPageDiv.style.display = 'none';
+        mainPage.style.display = 'block';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+    document.getElementById('contactLink').addEventListener('click', (e) => {
+        e.preventDefault();
+        if(aboutPageDiv.style.display === 'block') aboutPageDiv.style.display = 'none';
+        mainPage.style.display = 'block';
+        document.querySelector('.social-footer').scrollIntoView({ behavior: 'smooth' });
+    });
+    document.getElementById('servicesLink').addEventListener('click', (e) => {
+        e.preventDefault();
+        if(aboutPageDiv.style.display === 'block') aboutPageDiv.style.display = 'none';
+        mainPage.style.display = 'block';
+        document.getElementById('servicesSection').scrollIntoView({ behavior: 'smooth' });
+    });
+
+    buildServices();
+    buildClients();
+
+    // لوجو شفاف يظهر خلف الخدمات
+    const bgLogo = document.getElementById('floatingLogoBg');
+    if(bgLogo){
+        window.addEventListener('scroll', () => {
+            const servicesTop = document.getElementById('servicesSection')?.offsetTop;
+            if(window.scrollY + 300 > servicesTop) bgLogo.style.opacity = '0.3'; else bgLogo.style.opacity = '0.15';
+        });
+    }
+    
+    // خدمة تظهر البطاقات من أسفل (جميعها بشكل موحد مع الحركة)
+    const extraObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if(entry.isIntersecting){
+                entry.target.classList.add('visible-card');
+            }
+        });
+    }, { threshold: 0.2 });
+    document.querySelectorAll('.service-card').forEach(c => extraObserver.observe(c));
 </script>
 </body>
 </html>
